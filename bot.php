@@ -2,37 +2,24 @@
 
 require('line-message-service.php');
 
-// define("LINE_MESSAGING_API_CHANNEL_SECRET", '/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
-// define("LINE_MESSAGING_API_CHANNEL_TOKEN", '3642a5308ae8d0816c64d96d924b4ac6');
-//
-// use LINE\LINEBot;
-// use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-// use LINE\LINEBot\Constant\HTTPHeader;
-// use LINE\LINEBot\Event\MessageEvent];
-// use LINE\LINEBot\Event\MessageEvent\TextMessage;
-// // use LineMessageService;
-//
-//
-// require('/vendor/autoload.php');
-//
-// $bot = new LINEBot(new CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), [
-//             'channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET,
-//         ]);
-//
-// $signature = $_SERVER["HTTP_".\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
-// Composerでインストールしたライブラリを一括読み込み
-require_once __DIR__ . '/vendor/autoload.php';
+define("LINE_MESSAGING_API_CHANNEL_SECRET", '/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
+define("LINE_MESSAGING_API_CHANNEL_TOKEN", '3642a5308ae8d0816c64d96d924b4ac6');
 
-// アクセストークンを使いCurlHTTPClientをインスタンス化
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
-
-//CurlHTTPClientとシークレットを使いLINEBotをインスタンス化
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '3642a5308ae8d0816c64d96d924b4ac6']);
+use LINE\LINEBot;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\LINEBot\Constant\HTTPHeader;
+use LINE\LINEBot\Event\MessageEvent];
+use LINE\LINEBot\Event\MessageEvent\TextMessage;
+// use LineMessageService;
 
 
+require('/vendor/autoload.php');
 
-// LINE Messaging APIがリクエストに付与した署名を取得
-$signature = $_SERVER["HTTP_" . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
+$bot = new LINEBot(new CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), [
+            'channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET,
+        ]);
+
+$signature = $_SERVER["HTTP_".\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 $body = file_get_contents("php://input");
 
 try {
@@ -40,49 +27,29 @@ try {
     $events = $bot->parseEventRequest($body, $signature);
 
     foreach ($events as $event) {
-       // if ($event instanceof TextMessage) {
-          $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
+      $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
           continue;
-       // }
-       // $response = $bot->replyMessage(
-       //     $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())
-       // );
-    }
-
-    $response = $bot->replyMessage(
-        $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())
-    );
-
+    //    if ($event instanceof FollowEvent) {
+    //       continue;
+    //    } else if ($event instanceof UnfollowEvent) {
+    //       continue;
+    //    } else if ($event instanceof PostbackEvent) {
+    //       continue;
+    //    } else if ($event instanceof TextMessage) {
+    //       processTextMessageEvent($bot, $event);
+    //       continue;
+    //    } else if ($event instanceof LocationMessage) {
+    //      replyTaberguList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
+    //      continue;
+    //    } else {
+    //
+    //    }
+    //
+    // }
 } catch (Exception $e) {
   // none
 }
 
-// try {
-//     // Bodyと$signatureから内容をVerifyして成功すればEventを得られる
-//     $events = $bot->parseEventRequest($body, $signature);
-//
-//     foreach ($events as $event) {
-//        if ($event instanceof FollowEvent) {
-//           continue;
-//        } else if ($event instanceof UnfollowEvent) {
-//           continue;
-//        } else if ($event instanceof PostbackEvent) {
-//           continue;
-//        } else if ($event instanceof TextMessage) {
-//           processTextMessageEvent($bot, $event);
-//           continue;
-//        } else if ($event instanceof LocationMessage) {
-//          replyTaberguList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
-//          continue;
-//        } else {
-//
-//        }
-//
-//     }
-// } catch (Exception $e) {
-//   // none
-// }
-//
 // function processTextMessageEvent($bot, $event) {
 //   $text = $event->getText();
 //   if (isCategoryText($text)) {
