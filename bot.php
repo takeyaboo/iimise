@@ -8,12 +8,12 @@ define("LINE_MESSAGING_API_CHANNEL_TOKEN", '3642a5308ae8d0816c64d96d924b4ac6');
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\Constant\HTTPHeader;
-use LINE\LINEBot\Event\MessageEvent];
+use LINE\LINEBot\Event\MessageEvent;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 // use LineMessageService;
 
 
-require('/vendor/autoload.php');
+require('vendor/autoload.php');
 
 $bot = new LINEBot(new CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), [
             'channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET,
