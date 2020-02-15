@@ -49,9 +49,9 @@ try {
        // );
     }
 
-    $response = $bot->replyMessage(
-        $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())
-    );
+    // $response = $bot->replyMessage(
+    //     $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())
+    // );
 
 } catch (Exception $e) {
   // none
