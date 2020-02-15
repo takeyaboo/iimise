@@ -76,7 +76,7 @@ function processTextMessageEvent($bot, $event) {
 }
 
 function isCategoryText($text) {
-  return ($text === '1' || $text === '2' || $text === '3' || $text === '4'); // FIXME magic number
+  return ($text === '1' || $text === '2' || $text === '3' || $text === '4'); 
 }
 
 function putCategory($user_id, $category) {
