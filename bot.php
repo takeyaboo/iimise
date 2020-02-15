@@ -162,7 +162,7 @@ function searchGoogleGeocodingAPI($address) {
     curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($conn, CURLOPT_POST, true);
-    curl_setopt($conn, CURLOPT_URL,  '{秘密のAPI URL}');
+    curl_setopt($conn, CURLOPT_URL,  'https://iimise.herokuapp.com/bot.php');
     curl_setopt($conn, CURLOPT_POSTFIELDS, http_build_query($data));
 
     $result = curl_exec($conn);
