@@ -6,7 +6,7 @@ use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\Event\MessageEvent\TextMessage;
+// use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LineMessageService;
 
 
