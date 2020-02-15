@@ -9,7 +9,6 @@ use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\Event\MessageEvent;
-use LineMessageService;
 
 
 require('vendor/autoload.php');
