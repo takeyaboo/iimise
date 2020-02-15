@@ -132,7 +132,7 @@ function searchGoogleGeocodingAPI($address) {
      if (count($taberoguList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
      } else {
-       $lineService = new LineMessageService(LINE_MESSAGING_API_CHANNEL_TOKEN);
+       $lineService = new LineMessageService('3642a5308ae8d0816c64d96d924b4ac6');
        $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
        $bot->replyText($event->getReplyToken(),$res);
      }
