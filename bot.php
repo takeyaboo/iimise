@@ -12,7 +12,7 @@ use LINE\LINEBot\Event\MessageEvent;
 // use LineMessageService;
 
 
-require('vendor/autoload.php');
+require('../vendor/autoload.php');
 
 $bot = new LINEBot(new CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), [
             'channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET,
