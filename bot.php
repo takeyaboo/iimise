@@ -32,7 +32,9 @@ try {
        } else if ($event instanceof PostbackEvent) {
           continue;
        } else if ($event instanceof TextMessage) {
-          processTextMessageEvent($bot, $event);
+          // processTextMessageEvent($bot, $event);
+          $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
+          continue;
           continue;
        } else if ($event instanceof LocationMessage) {
          replyTaberguList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
