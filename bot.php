@@ -52,7 +52,7 @@ try {
        } else if ($event instanceof TextMessage) {
           processTextMessageEvent($bot, $event);
           continue;
-       } else if ($event instanceof LocationMessage) {
+       } else if (!$event instanceof LocationMessage) {
          replyTaberguList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
          continue;
        } else {
