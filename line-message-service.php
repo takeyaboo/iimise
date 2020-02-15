@@ -58,7 +58,7 @@ class LineMessageService {
      "type"=> "bubble",
      "hero"=> [
        "type"=> "image",
-       "url"=> $taberogu->{'image_url'},
+       "url"=> 'dalsna',
        "size"=> "full",
        "aspectRatio"=> "20:13",
        "aspectMode"=> "cover",
