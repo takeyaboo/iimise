@@ -139,7 +139,7 @@ function searchGoogleGeocodingAPI($address) {
   }
 
   function getTaberoguData($cat,$lat,$lng) {
-    $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat];
+    $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat 'a'=>'a'];
     $conn = curl_init();
 
     curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
