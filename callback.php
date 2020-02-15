@@ -14,7 +14,7 @@
     $signature = $_SERVER["HTTP_" . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 
     //署名をチェックし、正当であればリクエストをパースし配列へ、不正であれば例外処理
-    $events = $bot->parseEventRequest(file_get_contents('php://input')."by俺", $signature);
+    $events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
 
     foreach ($events as $event) {
         // メッセージを返信
