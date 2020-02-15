@@ -3,7 +3,7 @@
 require('line-message-service.php');
 
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
-use LineMessageService;
+// use LineMessageService;
 use LINE\LINEBot\Event\MessageEvent\LocationMessage;
 
 
