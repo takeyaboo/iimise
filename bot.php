@@ -99,8 +99,8 @@ function putCategory($user_id, $category) {
 
 function replayLocationActionMessage($bot, $token) {
   $action = new LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("位置情報を送る", 'line://nv/location');
-  $buttonObj = new ButtonTemplateBuilder(NULL, '続いて位置情報を送るか、住所／地域名を入力してください。', NULL, [$action]);
-  $bot->replyMessage($token,new TemplateMessageBuilder('続いて位置情報を送ってください。',$buttonObj));
+  $buttonObj = new LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(NULL, '続いて位置情報を送るか、住所／地域名を入力してください。', NULL, [$action]);
+  $bot->replyMessage($token,new LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('続いて位置情報を送ってください。',$buttonObj));
 }
 
 function searchFromLocationWord($bot, $event) {
