@@ -127,10 +127,10 @@ function searchGoogleGeocodingAPI($address) {
 
   function replyTaberguList($bot, $eventData, $lat, $lng) {
      // $category = getCategory($eventData->getUserId());
-     $taberoguList = getTaberoguData(1,35.671423,139.651238);
+     $taberoguList = getTaberoguData(1,$lat,$lng);
      // $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1];
      if (count($taberoguList) === 0) {
-       $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
+       $bot->replyText($eventData->getReplyToken(),$lat.$lng);
      } else {
        $lineService = new LineMessageService('3642a5308ae8d0816c64d96d924b4ac6');
        $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
