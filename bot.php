@@ -40,11 +40,19 @@ try {
     $events = $bot->parseEventRequest($body, $signature);
 
     foreach ($events as $event) {
-       if ($event instanceof TextMessage) {
-          $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
-          continue;
-       }
+       // if ($event instanceof TextMessage) {
+       //    $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
+       //    continue;
+       // }
+       $response = $bot->replyMessage(
+           $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())
+       );
     }
+
+    $response = $bot->replyMessage(
+        $event->getReplyToken(), new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event->getText())
+    );
+
 } catch (Exception $e) {
   // none
 }
