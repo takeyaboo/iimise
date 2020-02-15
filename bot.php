@@ -2,8 +2,12 @@
 
 require('line-message-service.php');
 
+use LINE\LINEBot\Event\MessageEvent\TextMessage;
+
 // Composerでインストールしたライブラリを一括読み込み
 require_once __DIR__ . '/vendor/autoload.php';
+
+
 
 // アクセストークンを使いCurlHTTPClientをインスタンス化
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
@@ -21,7 +25,7 @@ try {
     $events = $bot->parseEventRequest($body, $signature);
 
     foreach ($events as $event) {
-       if(!$event instanceof TextMessage) {
+       if($event instanceof TextMessage) {
           $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
           continue;
        }
