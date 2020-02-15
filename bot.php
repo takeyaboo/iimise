@@ -134,7 +134,7 @@ function searchGoogleGeocodingAPI($address) {
      } else {
        $lineService = new LineMessageService('3642a5308ae8d0816c64d96d924b4ac6');
        $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
-       $bot->replyText($event->getReplyToken(),$res);
+       $bot->replyText($eventData->getReplyToken(),$res);
      }
   }
 
