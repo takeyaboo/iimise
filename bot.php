@@ -128,7 +128,7 @@ function searchGoogleGeocodingAPI($address) {
   function replyTaberguList($bot, $eventData, $lat, $lng) {
      // $category = getCategory($eventData->getUserId());
      // $taberoguList = getTaberoguData($category,$lat,$lng);
-     $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1];
+     $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1, 'a'=>'a'];
      if (count($taberoguList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
      } else {
@@ -139,7 +139,7 @@ function searchGoogleGeocodingAPI($address) {
   }
 
   function getTaberoguData($cat,$lat,$lng) {
-    $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat 'a'=>'a'];
+    $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat];
     $conn = curl_init();
 
     curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
