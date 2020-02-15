@@ -3,6 +3,10 @@
 require('line-message-service.php');
 
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\LINEBot\Constant\HTTPHeader;
+use LINE\LINEBot\Event\MessageEvent;
+use LINE\LINEBot\Event\MessageEvent\TextMessage;
 use LineMessageService;
 
 
@@ -76,7 +80,7 @@ function processTextMessageEvent($bot, $event) {
 }
 
 function isCategoryText($text) {
-  return ($text === '1' || $text === '2' || $text === '3' || $text === '4'); 
+  return ($text === '1' || $text === '2' || $text === '3' || $text === '4');
 }
 
 function putCategory($user_id, $category) {
