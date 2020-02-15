@@ -1,4 +1,7 @@
 <?php
+
+require('line-message-service.php');
+
 define("LINE_MESSAGING_API_CHANNEL_SECRET", '/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
 define("LINE_MESSAGING_API_CHANNEL_TOKEN", '3642a5308ae8d0816c64d96d924b4ac6');
 
@@ -6,6 +9,7 @@ use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\Event\MessageEvent;
+use LineMessageService;
 
 
 require('vendor/autoload.php');
@@ -32,8 +36,8 @@ try {
           processTextMessageEvent($bot, $event);
           continue;
        } else if ($event instanceof LocationMessage) {
-          // TODO あとで実装
-          continue;
+         replyTaberguList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
+         continue;
        } else {
 
        }
@@ -100,4 +104,56 @@ function searchGoogleGeocodingAPI($address) {
   $jsonData = json_decode($contents,true);
 
   return $jsonData["results"][0]["geometry"]["location"];
-}
+
+
+  function replyTaberguList($bot, $eventData, $lat, $lng) {
+     $category = getCategory($eventData->getUserId());
+     $taberoguList = getTaberoguData($category,$lat,$lng);
+     if (count($taberoguList) === 0) {
+       $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
+     } else {
+       $lineService = new LineMessageService(LINE_MESSAGING_API_CHANNEL_TOKEN);
+       $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
+       $bot->replyText($event->getReplyToken(),$res);
+     }
+  }
+
+  function getTaberoguData($cat,$lat,$lng) {
+    $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat];
+    $conn = curl_init();
+
+    curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($conn, CURLOPT_POST, true);
+    curl_setopt($conn, CURLOPT_URL,  '{秘密のAPI URL}');
+    curl_setopt($conn, CURLOPT_POSTFIELDS, http_build_query($params));
+
+    $result = curl_exec($conn);
+
+    curl_close($conn);
+
+    return json_decode($result);
+  }
+
+  function getCategory($user_id) {
+    $conn = curl_init();
+    $data = ['type'=>'get','user_id' => $user_id];
+    curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($conn, CURLOPT_POST, true);
+    curl_setopt($conn, CURLOPT_URL,  '{秘密のAPI URL}');
+    curl_setopt($conn, CURLOPT_POSTFIELDS, http_build_query($data));
+
+    $result = curl_exec($conn);
+
+    curl_close($conn);
+
+    $status = json_decode($result)->{'status'};
+    if ($status === 'success') {
+      return json_decode($result)->{'user'}->{'cat'};
+    } else {
+      return 1;
+    }
+  }
