@@ -127,7 +127,7 @@ function searchGoogleGeocodingAPI($address) {
 
   function replyTaberguList($bot, $eventData, $lat, $lng) {
      // $category = getCategory($eventData->getUserId());
-     $taberoguList = getTaberoguData(1,$lat,$lng);
+     $taberoguList = getTaberoguData(1,35.671423,139.651238);
      // $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1];
      if (count($taberoguList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
