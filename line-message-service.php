@@ -43,7 +43,7 @@ class LineMessageService {
       }
       // $contents = ["type"=>"carousel","contents"=>$carouselItem];
       // return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
-      return ['type'=>'flex', 'contents'=>$contents];
+      return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
 
 
   }
