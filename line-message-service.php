@@ -15,7 +15,7 @@ class LineMessageService {
 
   private function createJsonParameter($token, $list) {
     $messages = $this->generateFlexMessageContents($list);
-    $result = ['replyToken'=>'a', 'messages'=>$messages];
+    $result = ['replyToken'=>$token, 'messages'=>$messages];
     return json_encode($result);
   }
 
@@ -56,6 +56,19 @@ class LineMessageService {
   }
 
   private function getFlexTemplate($taberogu) {
+    return [
+      "type"=> "bubble",
+      "body"=> [
+          "type"=> "box",
+          "layout"=> "vertical",
+          "contents"=> [
+            [
+              "type"=> "text",
+              "text"=> 'a',
+            ]
+          ]
+        ]
+    ];
    //  return  [
    //   "type"=> "bubble",
    //   "hero"=> [
