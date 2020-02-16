@@ -169,7 +169,7 @@ function searchGoogleGeocodingAPI($address) {
        // $res = implode(",", array_keys($taberoguList));
        $res = implode(",", $shop);
 
-       $bot->replyText($eventData->getReplyToken(), $shop);
+       $bot->replyText($eventData->getReplyToken(), $res);
      }
   }
 
