@@ -164,6 +164,7 @@ function searchGoogleGeocodingAPI($address) {
        //         }
 
        $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
+       mb_send_mail('tk85130@gmail.com','テスト',$res);
        $bot->replyText($eventData->getReplyToken(),$res);
      }
   }
