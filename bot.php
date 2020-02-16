@@ -134,7 +134,7 @@ function searchGoogleGeocodingAPI($address) {
      } else {
        $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
 
-       $shop = []:
+       $shop = [];
        foreach ($taberoguList['rest'] as $shop) {
                    //APIから取得した情報を変数に格納
                    $shop_id = empty($shop['id']) ? '' : $shop['id'];
