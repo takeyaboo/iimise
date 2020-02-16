@@ -165,7 +165,7 @@ function searchGoogleGeocodingAPI($address) {
                    array_push($shop_detail[$i]['url'], $url);
                    array_push($shop_detail[$i]['address'], $address);
 
-                   $i++
+                   $i++;
 
                }
 
