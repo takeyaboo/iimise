@@ -166,6 +166,9 @@ function searchGoogleGeocodingAPI($address) {
        // $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
        // $res = serialize($taberoguList);
        // $res = implode(",", array_keys($taberoguList));
+       // $res = implode(",", array_keys($taberoguList));
+       $res = implode(",", $shop);
+
        $bot->replyText($eventData->getReplyToken(), $shop);
      }
   }
