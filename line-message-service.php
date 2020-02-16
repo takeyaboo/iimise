@@ -37,13 +37,13 @@ class LineMessageService {
   }
 
   private function generateFlexMessageContents($list) {
-      // $carouselItem = [];
-      // foreach ($list as $taberogu) {
-      //      $carouselItem[] = $this->getFlexTemplate($taberogu);
-      // }
+      $carouselItem = [];
+      foreach ($list as $taberogu) {
+           $carouselItem[] = $this->getFlexTemplate($taberogu);
+      }
       // $contents = ["type"=>"carousel","contents"=>$carouselItem];
       // return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
-      return 'a';
+      return $carouselItem;
 
   }
 
