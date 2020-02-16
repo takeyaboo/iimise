@@ -33,7 +33,7 @@ class LineMessageService {
     // curl_close($conn);
 
     // $result = var_export($jsonParam, true);
-    $result = $jsonParam[0];
+    $result = $jsonParam[1][61];
 
     return $result;
     // return 'test3';
