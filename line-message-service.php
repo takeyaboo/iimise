@@ -9,10 +9,9 @@ class LineMessageService {
   }
 
   public function postFlexMessage($token, $param) {
-        // $postJson = $this->createJsonParameter($token, $param);
+        $postJson = $this->createJsonParameter($token, $param);
         // return $this->postMessage($postJson);
-
-        return $param[0]['name'];
+        return $postJson['messages']['contents']['contents'];
   }
 
   private function createJsonParameter($token, $list) {
