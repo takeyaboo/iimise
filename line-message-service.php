@@ -58,13 +58,13 @@ class LineMessageService {
      "type"=> "bubble",
      "hero"=> [
        "type"=> "image",
-       "url"=> $taberogu->{'image_url'},
+       "url"=> 'aaa',
        "size"=> "full",
        "aspectRatio"=> "20:13",
        "aspectMode"=> "cover",
        "action"=> [
          "type"=> "uri",
-         "uri"=> $taberogu->{'url'}
+         "uri"=> 'aaa'
        ]
      ],
      "body"=> [
@@ -73,7 +73,7 @@ class LineMessageService {
        "contents"=> [
          [
            "type"=> "text",
-           "text"=> $taberogu->{'name'},
+           "text"=> 'bbb',
            "weight"=> "bold",
            "size"=> "xl"
          ],
@@ -160,7 +160,7 @@ class LineMessageService {
                  [
                    "type"=> "text",
                    // "text"=> $taberogu->{'street'}.' ('.$distance.'m)',
-                   "text"=> $taberogu->{'address'},
+                   "text"=> 'asjh',
                    "wrap"=> true,
                    "color"=> "#666666",
                    "size"=> "sm",
@@ -206,7 +206,7 @@ class LineMessageService {
            "action"=> [
              "type"=> "uri",
              "label"=> "ぐるナビをみる",
-             "uri"=> $taberogu->{'url'}
+             "uri"=> 'jadbalb'
            ]
          ],
          [
