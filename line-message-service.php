@@ -26,7 +26,7 @@ class LineMessageService {
     curl_setopt($conn, CURLOPT_POST, true);
     curl_setopt($conn, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$this->accessToken,'Content-type: application/json'));
     curl_setopt($conn, CURLOPT_URL,  'https://api.line.me/v2/bot/message/reply');
-    curl_setopt($conn, CURLOPT_POSTFIELDS, $jsonParam);
+    // curl_setopt($conn, CURLOPT_POSTFIELDS, $jsonParam);
 
     $result = curl_exec($conn);
 
