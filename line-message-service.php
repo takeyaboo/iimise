@@ -32,8 +32,8 @@ class LineMessageService {
 
     curl_close($conn);
 
-    // return $result;
-    return 'test3';
+    return $result;
+    // return 'test3';
   }
 
   private function generateFlexMessageContents($list) {
