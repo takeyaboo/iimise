@@ -15,7 +15,7 @@ class LineMessageService {
 
   private function createJsonParameter($token, $list) {
     $messages = $this->generateFlexMessageContents($list);
-    $result = ['replyToken'=>$token, 'messages'=>$messages];
+    $result = ['replyToken'=>$token, 'messages'=>[$messages]];
     return json_encode($result);
   }
 
@@ -35,8 +35,8 @@ class LineMessageService {
     // $a = var_export($result, true);
     // $result = $jsonParam['token'];
 
-    // return $a;
-    return 'test3';
+    return $result;
+    // return 'test3';
   }
 
   private function generateFlexMessageContents($list) {
