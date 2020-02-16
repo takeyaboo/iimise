@@ -132,7 +132,7 @@ function searchGoogleGeocodingAPI($address) {
      if (count($taberoguList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
      } else {
-       $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
+       // $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
 
 
        // foreach ($taberoguList['rest'] as $shop) {
@@ -163,7 +163,7 @@ function searchGoogleGeocodingAPI($address) {
        //             $shop[] = $shop_name;
        //         }
 
-       $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
+       // $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
        $bot->replyText($eventData->getReplyToken(), 'test');
      }
   }
