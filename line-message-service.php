@@ -32,11 +32,11 @@ class LineMessageService {
 
     curl_close($conn);
 
-    $a = var_export($result, true);
+    // $a = var_export($result, true);
     // $result = $jsonParam['token'];
 
-    return $a;
-    // return 'test3';
+    // return $a;
+    return 'test3';
   }
 
   private function generateFlexMessageContents($list) {
