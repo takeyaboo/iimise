@@ -32,7 +32,7 @@ class LineMessageService {
     //
     // curl_close($conn);
 
-    $result = var_export($jsonParam, true);
+    $result = print_r($jsonParam, true);
 
 
     return $result;
