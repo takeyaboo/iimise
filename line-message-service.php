@@ -206,7 +206,7 @@ class LineMessageService {
            "action"=> [
              "type"=> "uri",
              "label"=> "ぐるナビをみる",
-             "uri"=> 'jadbalb'
+             "uri"=> 'fd'
            ]
          ],
          [
