@@ -134,7 +134,8 @@ function searchGoogleGeocodingAPI($address) {
      } else {
        $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
 
-       $shop_detail = array('name' => array(), 'url' => array(), 'address' => array());
+       $shop_detail = array(array('name' => array(), 'url' => array(), 'address' => array()));
+       $i = 0;
        foreach ($taberoguList['rest'] as $shop) {
                    //APIから取得した情報を変数に格納
                    $shop_id = empty($shop['id']) ? '' : $shop['id'];
@@ -160,9 +161,11 @@ function searchGoogleGeocodingAPI($address) {
                    // }
                    // $category_names = implode(',', $category_name);
                    //
-                   array_push($shop_detail['name'], $name);
-                   array_push($shop_detail['url'], $url);
-                   array_push($shop_detail['address'], $address);
+                   array_push($shop_detail[$i]['name'], $name);
+                   array_push($shop_detail[$i]['url'], $url);
+                   array_push($shop_detail[$i]['address'], $address);
+
+                   $i++
 
                }
 
@@ -171,9 +174,9 @@ function searchGoogleGeocodingAPI($address) {
        // $res = serialize($taberoguList);
        // $res = implode(",", array_keys($taberoguList));
        // $res = implode(",", array_keys($taberoguList));
-       $res = implode(",", $shop_detail['name']);
+       $res = implode(",", $shop_detail[0]['name']);
 
-       $bot->replyText($eventData->getReplyToken(), $res);
+       $bot->replyText($eventData->getReplyToken(), $shop_detail[0]['name']);
      }
   }
 
