@@ -152,7 +152,7 @@ function searchGoogleGeocodingAPI($address) {
         );
 
 
-   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' . http_build_query(array_merge($params, array('offset_page' => $pageCount)));
+   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' . http_build_query($params);
 
 
    $option = [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 3];
