@@ -14,8 +14,7 @@ class LineMessageService {
   }
 
   private function createJsonParameter($token, $list) {
-    // $messages = $this->generateFlexMessageContents($list);
-    $messages = 'a';
+    $messages = $this->generateFlexMessageContents($list);
     $result = ['replyToken'=>$token, 'messages'=>[$messages]];
     return json_encode($result);
   }
@@ -38,11 +37,11 @@ class LineMessageService {
   }
 
   private function generateFlexMessageContents($list) {
-      $carouselItem = [];
-      foreach ($list as $taberogu) {
-           $carouselItem[] = $this->getFlexTemplate($taberogu);
-      }
-      $contents = ["type"=>"carousel","contents"=>$carouselItem];
+      // $carouselItem = [];
+      // foreach ($list as $taberogu) {
+      //      $carouselItem[] = $this->getFlexTemplate($taberogu);
+      // }
+      $contents = ["type"=>"carousel","contents"=>'aa'];
       return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
   }
 
