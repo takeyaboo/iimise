@@ -12,7 +12,7 @@ class LineMessageService {
         // $postJson = $this->createJsonParameter($token, $param);
         // return $this->postMessage($postJson);
 
-        return $param[0]['name']
+        return $param[0]['name'];
   }
 
   private function createJsonParameter($token, $list) {
