@@ -10,8 +10,7 @@ class LineMessageService {
 
   public function postFlexMessage($token, $param) {
         $postJson = $this->createJsonParameter($token, $param);
-        // return $this->postMessage($postJson);
-        return 'test';
+        return $this->postMessage($postJson);
   }
 
   private function createJsonParameter($token, $list) {
@@ -33,7 +32,8 @@ class LineMessageService {
 
     curl_close($conn);
 
-    return $result;
+    // return $result;
+    return 'test2';
   }
 
   private function generateFlexMessageContents($list) {
