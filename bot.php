@@ -165,7 +165,7 @@ function searchGoogleGeocodingAPI($address) {
 
        // $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
        $res = serialize($taberoguList);
-       $bot->replyText($eventData->getReplyToken(), $res);
+       $bot->replyText($eventData->getReplyToken(), 'sjhlda');
      }
   }
 
