@@ -168,7 +168,7 @@ function searchGoogleGeocodingAPI($address) {
        // $res = serialize($taberoguList);
        // $res = implode(",", array_keys($taberoguList));
        // $res = implode(",", array_keys($taberoguList));
-       $res = implode(",", $taberoguList['rest']);
+       $res = implode(",", array_keys($taberoguList['rest']));
 
        $bot->replyText($eventData->getReplyToken(), $res);
      }
