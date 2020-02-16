@@ -41,8 +41,8 @@ class LineMessageService {
       foreach ($list as $taberogu) {
            $carouselItem[] = $this->getFlexTemplate($taberogu);
       }
-      $contents = ["contents"=>$carouselItem];
-      // return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
+      // $contents = ["type"=>"carousel","contents"=>$carouselItem];
+      $contents = [0 => 'a', 1 => 'b'];
       return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
 
 
