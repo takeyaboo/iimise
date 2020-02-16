@@ -32,10 +32,10 @@ class LineMessageService {
 
     curl_close($conn);
 
-    $result = var_export($result, true);
+    $a = var_export($result, true);
     // $result = $jsonParam['token'];
 
-    return $result;
+    return $a;
     // return 'test3';
   }
 
