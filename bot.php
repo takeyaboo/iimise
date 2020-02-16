@@ -166,6 +166,8 @@ function searchGoogleGeocodingAPI($address) {
                    // array_push($shop_detail[$i]['address'], $address);
 
                    $shop_detail[$i]['name'] = $name;
+                   $shop_detail[$i]['url'] = $url;
+                   $shop_detail[$i]['address'] = $address;
 
                    $i++;
 
@@ -178,7 +180,7 @@ function searchGoogleGeocodingAPI($address) {
        // $res = implode(",", array_keys($taberoguList));
        // $res = implode(",", $shop_detail[0]['name']);
 
-       $bot->replyText($eventData->getReplyToken(), $shop_detail[0]['name']);
+       $bot->replyText($eventData->getReplyToken(), $shop_detail);
      }
   }
 
