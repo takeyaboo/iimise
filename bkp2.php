@@ -139,35 +139,21 @@ function searchGoogleGeocodingAPI($address) {
   }
 
   function getTaberoguData($cat,$lat,$lng) {
-    // $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat];
-    $params = array(
-            // 'format' => 'json',
-            'keyid' => 'a5a5c6221c808b389917cd489c139be2',
-            'hit_per_page' => '30',
-            'latitude' => $lat,
-            'longitude' => $lng,
-            'range' => 2,
-            'inputCoordinatesMode' => 1,
-            'coordinatesMode' => 1,
-        );
+    $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat];
+    $conn = curl_init();
 
+    curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($conn, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($conn, CURLOPT_POST, true);
+    curl_setopt($conn, CURLOPT_URL,  'https://iimise.herokuapp.com/bot.php');
+    curl_setopt($conn, CURLOPT_POSTFIELDS, http_build_query($params));
 
-   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' . http_build_query(array_merge($params, array('offset_page' => $pageCount)));
+    $result = curl_exec($conn);
 
+    curl_close($conn);
 
-   $option = [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 3];
-   $ch = curl_init($url);
-   curl_setopt_array($ch, $option);
-   $json = curl_exec($ch);
-   $info = curl_getinfo($ch);
-   $errorNo = curl_errno($ch);
-   if ($errorNo !== CURLE_OK) {
-       return [];
-   }
-   if ($info['http_code'] !== 200) {
-       return [];
-   }
-   return json_decode($json, true);
+    return json_decode($result);
   }
 
   function getCategory($user_id) {

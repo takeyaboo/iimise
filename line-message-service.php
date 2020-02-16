@@ -52,8 +52,8 @@ class LineMessageService {
   }
 
   private function getFlexTemplate($taberogu) {
-   $ratingInt = round($taberogu->{'rating'});
-   $distance = round($taberogu->{'distance'}*1000);
+   // $ratingInt = round($taberogu->{'rating'});
+   // $distance = round($taberogu->{'distance'}*1000);
    return  [
      "type"=> "bubble",
      "hero"=> [
@@ -77,74 +77,74 @@ class LineMessageService {
            "weight"=> "bold",
            "size"=> "xl"
          ],
-         [
-           "type"=> "box",
-           "layout"=> "baseline",
-           "margin"=> "md",
-           "contents"=> [
-             [
-               "type"=> "icon",
-               "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 1)
-             ],
-             [
-               "type"=> "icon",
-               "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 2)
-             ],
-             [
-               "type"=> "icon",
-               "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 3)
-             ],
-             [
-               "type"=> "icon",
-               "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 4)
-             ],
-             [
-               "type"=> "icon",
-               "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 5)
-             ],
-             [
-               "type"=> "text",
-               "text"=> $taberogu->{'rating'},
-               "size"=> "sm",
-               "color"=> "#999999",
-               "margin"=> "md",
-               "flex"=> 0
-             ]
-           ]
-         ],
+         // [
+         //   "type"=> "box",
+         //   "layout"=> "baseline",
+         //   "margin"=> "md",
+         //   "contents"=> [
+         //     [
+         //       "type"=> "icon",
+         //       "size"=> "sm",
+         //       "url"=> $this->getStarImg($ratingInt, 1)
+         //     ],
+         //     [
+         //       "type"=> "icon",
+         //       "size"=> "sm",
+         //       "url"=> $this->getStarImg($ratingInt, 2)
+         //     ],
+         //     [
+         //       "type"=> "icon",
+         //       "size"=> "sm",
+         //       "url"=> $this->getStarImg($ratingInt, 3)
+         //     ],
+         //     [
+         //       "type"=> "icon",
+         //       "size"=> "sm",
+         //       "url"=> $this->getStarImg($ratingInt, 4)
+         //     ],
+         //     [
+         //       "type"=> "icon",
+         //       "size"=> "sm",
+         //       "url"=> $this->getStarImg($ratingInt, 5)
+         //     ],
+         //     [
+         //       "type"=> "text",
+         //       "text"=> $taberogu->{'rating'},
+         //       "size"=> "sm",
+         //       "color"=> "#999999",
+         //       "margin"=> "md",
+         //       "flex"=> 0
+         //     ]
+         //   ]
+         // ],
          [
            "type"=> "box",
            "layout"=> "vertical",
            "margin"=> "lg",
            "spacing"=> "sm",
            "contents"=> [
-             [
-               "type"=> "box",
-               "layout"=> "baseline",
-               "spacing"=> "sm",
-               "contents"=> [
-                 [
-                   "type"=> "text",
-                   "text"=> "種類",
-                   "color"=> "#aaaaaa",
-                   "size"=> "sm",
-                   "flex"=> 1
-                 ],
-                 [
-                   "type"=> "text",
-                   "text"=> $taberogu->{'service'},
-                   "wrap"=> true,
-                   "color"=> "#666666",
-                   "size"=> "sm",
-                   "flex"=> 5
-                 ]
-               ]
-             ],
+             // [
+             //   "type"=> "box",
+             //   "layout"=> "baseline",
+             //   "spacing"=> "sm",
+             //   "contents"=> [
+             //     [
+             //       "type"=> "text",
+             //       "text"=> "種類",
+             //       "color"=> "#aaaaaa",
+             //       "size"=> "sm",
+             //       "flex"=> 1
+             //     ],
+             //     [
+             //       "type"=> "text",
+             //       "text"=> $taberogu->{'service'},
+             //       "wrap"=> true,
+             //       "color"=> "#666666",
+             //       "size"=> "sm",
+             //       "flex"=> 5
+             //     ]
+             //   ]
+             // ],
              [
                "type"=> "box",
                "layout"=> "baseline",
@@ -159,7 +159,8 @@ class LineMessageService {
                  ],
                  [
                    "type"=> "text",
-                   "text"=> $taberogu->{'street'}.' ('.$distance.'m)',
+                   // "text"=> $taberogu->{'street'}.' ('.$distance.'m)',
+                   "text"=> $taberogu->{'address'},
                    "wrap"=> true,
                    "color"=> "#666666",
                    "size"=> "sm",
@@ -204,7 +205,7 @@ class LineMessageService {
            "height"=> "sm",
            "action"=> [
              "type"=> "uri",
-             "label"=> "食べログをみる",
+             "label"=> "ぐるナビをみる",
              "uri"=> $taberogu->{'url'}
            ]
          ],
