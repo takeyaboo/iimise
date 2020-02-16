@@ -53,22 +53,21 @@ class LineMessageService {
   }
 
   private function getFlexTemplate($taberogu) {
+    return 'test';
    // $ratingInt = round($taberogu->{'rating'});
    // $distance = round($taberogu->{'distance'}*1000);
-   return  [
-     "type"=> "bubble",
-     "hero"=> [
-       "type"=> "image",
-       "url"=> 'aaa',
-       "size"=> "full",
-       "aspectRatio"=> "20:13",
-       "aspectMode"=> "cover",
-       "action"=> [
-         "type"=> "uri",
-         "uri"=> 'aaa'
-       ]
-     ]
-   ];
+   // return  [
+   //   "type"=> "bubble",
+   //   "hero"=> [
+   //     "type"=> "image",
+   //     "url"=> 'aaa',
+   //     "size"=> "full",
+   //     "aspectRatio"=> "20:13",
+   //     "aspectMode"=> "cover",
+   //     "action"=> [
+   //       "type"=> "uri",
+   //       "uri"=> 'aaa'
+   //     ]
    //   ],
    //   "body"=> [
    //     "type"=> "box",
