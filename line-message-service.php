@@ -66,7 +66,9 @@ class LineMessageService {
        "action"=> [
          "type"=> "uri",
          "uri"=> 'aaa'
-       ];
+       ]
+     ]
+   ];
    //   ],
    //   "body"=> [
    //     "type"=> "box",
