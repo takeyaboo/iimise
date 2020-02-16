@@ -164,7 +164,8 @@ function searchGoogleGeocodingAPI($address) {
        //         }
 
        // $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
-       $bot->replyText($eventData->getReplyToken(), $taberoguList);
+       $res = serialize($taberoguList);
+       $bot->replyText($eventData->getReplyToken(), $res);
      }
   }
 
