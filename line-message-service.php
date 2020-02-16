@@ -42,7 +42,9 @@ class LineMessageService {
       //      $carouselItem[] = $this->getFlexTemplate($taberogu);
       // }
       // $contents = ["type"=>"carousel","contents"=>$carouselItem];
-      return ['type'=>'flex', 'altText'=>'search', 'contents'=>'aa'];
+      // return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
+      return 'a';
+
   }
 
   private function getStarImg($rating, $seq) {
