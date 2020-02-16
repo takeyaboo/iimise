@@ -134,11 +134,11 @@ function searchGoogleGeocodingAPI($address) {
      } else {
        $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
 
-       $shop_detail = array('shop_name' => array(), 'url' => array(), 'address' => array());
+       $shop_detail = array('name' => array(), 'url' => array(), 'address' => array());
        foreach ($taberoguList['rest'] as $shop) {
                    //APIから取得した情報を変数に格納
                    $shop_id = empty($shop['id']) ? '' : $shop['id'];
-                   $shop_name           = empty($shop['name']) ? '' : $shop['name'];
+                   $name           = empty($shop['name']) ? '' : $shop['name'];
                    $url                 = empty($shop['url']) ? '' : $shop['url'];
                    // $coupon_pc_url       = empty($shop['coupon_url']['pc']) ? '' : $shop['coupon_url']['pc'];
                    // $coupon_mobile_url   = empty($shop['coupon_url']['mobile']) ? '' : $shop['coupon_url']['mobile'];
@@ -160,7 +160,7 @@ function searchGoogleGeocodingAPI($address) {
                    // }
                    // $category_names = implode(',', $category_name);
                    //
-                   array_push($shop_detail['name'], $shop_name);
+                   array_push($shop_detail['name'], $name);
                    array_push($shop_detail['url'], $url);
                    array_push($shop_detail['address'], $address);
 
