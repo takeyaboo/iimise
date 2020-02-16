@@ -59,13 +59,13 @@ class LineMessageService {
      "type"=> "bubble",
      "hero"=> [
        "type"=> "image",
-       "url"=> $taberogu->{'image_url'},
+       "url"=> 'a',
        "size"=> "full",
        "aspectRatio"=> "20:13",
        "aspectMode"=> "cover",
        "action"=> [
          "type"=> "uri",
-         "uri"=> $taberogu->{'url'}
+         "uri"=> 'a'
        ]
      ],
      "body"=> [
@@ -74,7 +74,7 @@ class LineMessageService {
        "contents"=> [
          [
            "type"=> "text",
-           "text"=> $taberogu->{'name'},
+           "text"=> 'a',
            "weight"=> "bold",
            "size"=> "xl"
          ],
@@ -86,31 +86,31 @@ class LineMessageService {
              [
                "type"=> "icon",
                "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 1)
+               "url"=> 'a'
              ],
              [
                "type"=> "icon",
                "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 2)
+               "url"=> 'a'
              ],
              [
                "type"=> "icon",
                "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 3)
+               "url"=> 'a'
              ],
              [
                "type"=> "icon",
                "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 4)
+               "url"=> 'a'
              ],
              [
                "type"=> "icon",
                "size"=> "sm",
-               "url"=> $this->getStarImg($ratingInt, 5)
+               "url"=> 'a'
              ],
              [
                "type"=> "text",
-               "text"=> $taberogu->{'rating'},
+               "text"=> 'a',
                "size"=> "sm",
                "color"=> "#999999",
                "margin"=> "md",
@@ -138,7 +138,7 @@ class LineMessageService {
                  ],
                  [
                    "type"=> "text",
-                   "text"=> $taberogu->{'service'},
+                   "text"=> 'a',
                    "wrap"=> true,
                    "color"=> "#666666",
                    "size"=> "sm",
@@ -160,7 +160,7 @@ class LineMessageService {
                  ],
                  [
                    "type"=> "text",
-                   "text"=> $taberogu->{'street'}.' ('.$distance.'m)',
+                   "text"=> 'a',
                    "wrap"=> true,
                    "color"=> "#666666",
                    "size"=> "sm",
@@ -206,7 +206,7 @@ class LineMessageService {
            "action"=> [
              "type"=> "uri",
              "label"=> "食べログをみる",
-             "uri"=> $taberogu->{'url'}
+             "uri"=> 'a'
            ]
          ],
          [
