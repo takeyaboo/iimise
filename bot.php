@@ -165,7 +165,7 @@ function searchGoogleGeocodingAPI($address) {
 
        // $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
        // $res = serialize($taberoguList);
-       $res = 'レスポンス';
+       $res = implode(",", $taberoguList);
        $bot->replyText($eventData->getReplyToken(), $res);
      }
   }
