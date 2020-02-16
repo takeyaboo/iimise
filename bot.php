@@ -132,9 +132,39 @@ function searchGoogleGeocodingAPI($address) {
      if (count($taberoguList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
      } else {
-       $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
-       $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
-       $bot->replyText($eventData->getReplyToken(),$res);
+       // $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
+
+
+       foreach ($ApiDataResult['rest'] as $shop) {
+                   //APIから取得した情報を変数に格納
+                   $shop_id = empty($shop['id']) ? '' : $shop['id'];
+                   $shop_name           = empty($shop['name']) ? '' : $shop['name'];
+                   // $url                 = empty($shop['url']) ? '' : $shop['url'];
+                   // $coupon_pc_url       = empty($shop['coupon_url']['pc']) ? '' : $shop['coupon_url']['pc'];
+                   // $coupon_mobile_url   = empty($shop['coupon_url']['mobile']) ? '' : $shop['coupon_url']['mobile'];
+                   // $address             = empty($shop['address']) ? '' : $shop['address'];
+                   // $tel                 = empty($shop['tel']) ? '' : $shop['tel'];
+                   // $opentime            = empty($shop['opentime']) ? '' : $shop['opentime'];
+                   // $holiday             = empty($shop['holiday']) ? '' : $shop['holiday'];
+                   // $pr                  = empty($shop['pr']['pr_short']) ? '' : $shop['pr']['pr_short'];
+                   // $pr_long             = empty($shop['pr']['pr_long']) ? '' : $shop['pr']['pr_long'];
+                   // $image_url           = empty($shop['image_url']['shop_image1']) ? $arrayPhotoApiData['image_url'] : $shop['image_url']['shop_image1'];
+                   // $lunch               = empty($shop['lunch']) ? '' : $shop['lunch'];
+                   // $update_date         = empty($shop['update_date']) ? '' : $shop['update_date'];
+                   // $shop_categories     = empty($shop['code']['category_name_s']) ? '' : $shop['code']['category_name_s'];
+                   // $category_name = array();
+                   // foreach ($shop['code']['category_name_s'] as $v) {
+                   //     if (isset($v) && !is_array($v)) {
+                   //         $category_name[] = $v;
+                   //     }
+                   // }
+                   // $category_names = implode(',', $category_name);
+                   //
+                   $shop[] = $shop_name;
+               }
+
+       // $res = $lineService->postFlexMessage($eventData->getReplyToken(), $taberoguList);
+       $bot->replyText($eventData->getReplyToken(),$shop);
      }
   }
 
