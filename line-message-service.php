@@ -32,7 +32,7 @@ class LineMessageService {
     //
     // curl_close($conn);
 
-    $result = implode(",", array_keys($jsonParam));
+    $result = implode(",", $jsonParam);
 
 
     return $result;
