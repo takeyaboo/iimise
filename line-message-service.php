@@ -46,7 +46,7 @@ class LineMessageService {
       }
       $contents = ["type"=>"carousel","contents"=>$carouselItem];
       //20200216 この配列の三番目の要素があると返ってこない（文字列でも）
-      return ['contents'=>$contents];
+      return ['type'=>'flex', 'altText'=>'search'];
 
       // type => 'carousel',
       // contents => [
