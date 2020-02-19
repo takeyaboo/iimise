@@ -46,7 +46,7 @@ class LineMessageService {
       }
       $contents = ["type"=>"carousel","contents"=>$carouselItem];
       //20200216 この配列の三番目の要素があると返ってこない（文字列でも）
-      return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
+      return ['type'=>'flex', 'contents'=>$contents];
 
       // type => 'carousel',
       // contents => [
@@ -305,30 +305,29 @@ class LineMessageService {
            ]
          ]
        ]
+     ],
+     "footer"=> [
+       "type"=> "box",
+       "layout"=> "vertical",
+       "spacing"=> "sm",
+       "contents"=> [
+         [
+           "type"=> "button",
+           "style"=> "link",
+           "height"=> "sm",
+           "action"=> [
+             "type"=> "uri",
+             "label"=> "ぐるナビをみる",
+             "uri"=> 'fd'
+           ]
+         ],
+         [
+           "type"=> "spacer",
+           "size"=> "sm"
+         ]
+       ],
+       "flex"=> 0
      ]
-     // ],
-     // "footer"=> [
-     //   "type"=> "box",
-     //   "layout"=> "vertical",
-     //   "spacing"=> "sm",
-     //   "contents"=> [
-     //     [
-     //       "type"=> "button",
-     //       "style"=> "link",
-     //       "height"=> "sm",
-     //       "action"=> [
-     //         "type"=> "uri",
-     //         "label"=> "ぐるナビをみる",
-     //         "uri"=> 'fd'
-     //       ]
-     //     ],
-     //     [
-     //       "type"=> "spacer",
-     //       "size"=> "sm"
-     //     ]
-     //   ],
-     //   "flex"=> 0
-     // ]
    ];
   }
 }
