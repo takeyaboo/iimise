@@ -48,14 +48,14 @@ class LineMessageService {
       //20200216 この配列の三番目の要素があると返ってこない（文字列でも）
       return ['type'=>'flex', 'altText'=>'search', 'contents'=>$contents];
 
-      type => 'carousel',
-      contents => [
-        type => 'flex',
-        altText => 'search',
-        contents =>[
-
-        ]
-      ]
+      // type => 'carousel',
+      // contents => [
+      //   type => 'flex',
+      //   altText => 'search',
+      //   contents =>[
+      //
+      //   ]
+      // ]
 
 
   }
