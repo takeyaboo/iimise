@@ -304,7 +304,7 @@ class LineMessageService {
 
            ]
          ]
-       ]
+       ];
    //   ],
    //   "footer"=> [
    //     "type"=> "box",
