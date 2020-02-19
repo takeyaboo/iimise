@@ -198,7 +198,7 @@ function searchGoogleGeocodingAPI($address) {
             'keyid' => 'a5a5c6221c808b389917cd489c139be2',
             'hit_per_page' => '5',
             'latitude' => $lat,
-            // 'longitude' => $lng,
+            'longitude' => $lng,
             // 'freeword' => 'お酒',
             // 'range' => 2,
             // 'inputCoordinatesMode' => 1,
