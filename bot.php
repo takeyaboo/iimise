@@ -196,19 +196,19 @@ function searchGoogleGeocodingAPI($address) {
     $params = array(
             // 'format' => 'json',
             'keyid' => 'a5a5c6221c808b389917cd489c139be2',
-            'hit_per_page' => '30',
+            'hit_per_page' => '5',
             'latitude' => $lat,
             'longitude' => $lng,
+            'freeword' => 'お酒',
             'range' => 2,
             'inputCoordinatesMode' => 1,
             'coordinatesMode' => 1,
         );
 
-  　//フリーワード検索
-  　$freeword = http_build_query('お酒');
 
-   // $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' . http_build_query($params);
-   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=a5a5c6221c808b389917cd489c139be2&hit_per_page=10&latitude='.$lat.'&longitude='.$lng.'&freeword='.$freeword;
+
+   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' . http_build_query($params);
+   // $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=a5a5c6221c808b389917cd489c139be2&hit_per_page=10&latitude='.$lat.'&longitude='.$lng.'&freeword='.$freeword;
 
 
    $option = [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 3];
