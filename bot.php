@@ -126,6 +126,7 @@ function searchGoogleGeocodingAPI($address) {
 }
 
   function replyTaberguList($bot, $eventData, $lat, $lng) {
+
      // $category = getCategory($eventData->getUserId());
      $taberoguList = getTaberoguData(1,$lat,$lng);
      // $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1];
@@ -138,6 +139,7 @@ function searchGoogleGeocodingAPI($address) {
        $i = 0;
        $shop_detailes = "";
        foreach ($taberoguList['rest'] as $shop) {
+
 
                    //APIから取得した情報を変数に格納
                    $shop_id = empty($shop['id']) ? '' : $shop['id'];
@@ -199,6 +201,7 @@ function searchGoogleGeocodingAPI($address) {
             'hit_per_page' => '5',
             'latitude' => $lat,
             'longitude' => $lng,
+            'until_morning' => 1,
             // 'freeword' => 'お酒',
             // 'range' => 2,
             // 'inputCoordinatesMode' => 1,
