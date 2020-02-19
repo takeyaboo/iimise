@@ -138,7 +138,7 @@ function searchGoogleGeocodingAPI($address) {
        $i = 0;
        $shop_detailes = "";
        foreach ($taberoguList['rest'] as $shop) {
-                   $shop_detailes .= '\n';
+
                    //APIから取得した情報を変数に格納
                    $shop_id = empty($shop['id']) ? '' : $shop['id'];
                    $name           = empty($shop['name']) ? '' : $shop['name'];
@@ -171,7 +171,7 @@ function searchGoogleGeocodingAPI($address) {
                    $shop_detail[$i]['url'] = $url;
                    $shop_detail[$i]['address'] = $address;
 
-                   $shop_detailes .= '店名:'.$name.'\nURL:'.$url.'\n住所:'.$address;
+                   $shop_detailes .= '店名:'.$name.'/URL:'.$url.'/住所:'.$address;
 
 
 
@@ -204,9 +204,11 @@ function searchGoogleGeocodingAPI($address) {
             'coordinatesMode' => 1,
         );
 
+  　//フリーワード検索
+  　$freeword = http_build_query('お酒');
 
    // $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?' . http_build_query($params);
-   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=a5a5c6221c808b389917cd489c139be2&hit_per_page=10&latitude='.$lat.'&longitude='.$lng;
+   $url = 'https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=a5a5c6221c808b389917cd489c139be2&hit_per_page=10&latitude='.$lat.'&longitude='.$lng.'&freeword='.$freeword;
 
 
    $option = [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 3];
