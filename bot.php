@@ -138,7 +138,7 @@ function searchGoogleGeocodingAPI($address) {
        $i = 0;
        $shop_detailes = "";
        foreach ($taberoguList['rest'] as $shop) {
-                   $shop_detailes .= '<br>';
+                   $shop_detailes .= '\n';
                    //APIから取得した情報を変数に格納
                    $shop_id = empty($shop['id']) ? '' : $shop['id'];
                    $name           = empty($shop['name']) ? '' : $shop['name'];
@@ -171,7 +171,7 @@ function searchGoogleGeocodingAPI($address) {
                    $shop_detail[$i]['url'] = $url;
                    $shop_detail[$i]['address'] = $address;
 
-                   $shop_detailes .= '店名:'.$name.'URL:'.$url.'住所:'.$address;
+                   $shop_detailes .= '店名:'.$name.'\nURL:'.$url.'\n住所:'.$address;
 
 
 
