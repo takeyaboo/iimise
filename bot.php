@@ -198,7 +198,7 @@ function searchGoogleGeocodingAPI($address) {
     $params = array(
             // 'format' => 'json',
             'keyid' => 'a5a5c6221c808b389917cd489c139be2',
-            'hit_per_page' => '5',
+            'hit_per_page' => '10',
             'latitude' => $lat,
             'longitude' => $lng,
             'until_morning' => 1,
