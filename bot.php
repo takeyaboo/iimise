@@ -175,7 +175,7 @@ function searchGoogleGeocodingAPI($address) {
                    $shop_detail[$i]['url'] = $url;
                    $shop_detail[$i]['address'] = $address;
 
-                   $shop_detailes .= '店名:'.$name.'/URL:'.$url.'/住所:'.$address."\n\n";
+                   $shop_detailes .= '店名:'.$name."\n".'URL:'.$url."\n".'住所:'.$address."\n\n";
 
 
 
