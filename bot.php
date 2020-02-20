@@ -200,11 +200,14 @@ function searchGoogleGeocodingAPI($address) {
     $params = array(
             // 'format' => 'json',
             'keyid' => 'a5a5c6221c808b389917cd489c139be2',
-            'hit_per_page' => '10', //10件まで
+            //10件まで
+            'hit_per_page' => '10',
             'latitude' => $lat,
             'longitude' => $lng,
-            'until_morning' => 1,　//朝までやってる店
-            'freeword' => $freeword, //フリーワード検索
+            //朝までやってる店
+            'until_morning' => 1,
+            //フリーワード検索
+            'freeword' => $freeword,
             // 'range' => 2,
             // 'inputCoordinatesMode' => 1,
             // 'coordinatesMode' => 1,
