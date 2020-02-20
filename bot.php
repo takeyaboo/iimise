@@ -176,7 +176,8 @@ function searchGoogleGeocodingAPI($address) {
                    $shop_detail[$i]['address'] = $address;
 
                    $result_num = $i + 1;
-                   $shop_detailes .= '['.$result_num.'件目]'."\n".'店名:'.$name."\n".'URL:'.$url."\n".'住所:'.getGoogleMapUrl($address)."\n\n";
+                   $address_map = getGoogleMapUrl($address)
+                   $shop_detailes .= '['.$result_num.'件目]'."\n".'店名:'.$name."\n".'URL:'.$url."\n".'住所:'.$address_map."\n\n";
 
 
 
