@@ -54,7 +54,7 @@ try {
           processTextMessageEvent($bot, $event);
           continue;
        } else if ($event instanceof LocationMessage) {
-         replyTaberguList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
+         replyGurunaviList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
          continue;
        } else {
 
@@ -111,7 +111,7 @@ function searchFromLocationWord($bot, $event) {
   if ($location) {
     $lat = $location['lat'];
     $lng = $location['lng'];
-    replyTaberguList($bot, $event, $lat, $lng);
+    replyGurunaviList($bot, $event, $lat, $lng);
   }
 }
 
@@ -127,12 +127,12 @@ function searchGoogleGeocodingAPI($address) {
 
 }
 
-  function replyTaberguList($bot, $eventData, $lat, $lng) {
+  function replyGurunaviList($bot, $eventData, $lat, $lng) {
 
-     $category = getCategory($eventData->getUserId());
-     $taberoguList = getTaberoguData($category,$lat,$lng);
+     $freeword = getFreeword($eventData->getUserId());
+     $gurunaviList = getGurunaviData($freeword,$lat,$lng);
      // $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1];
-     if (count($taberoguList) === 0) {
+     if (count($gurunaviList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
      } else {
        $lineService = new LineMessageService('/dS99PmL9r96rJ3BbmRAYktUDbUSYdBDWGa+/IMYQLvXfvx56/c3ss6jKAv36H8D1Tgo03mP7LzN87umgVZbWYi4xbNkME6Zaxy9BPLnq/DjA9VT/tDDFS748H/7PBhTcdJef79+P5pPyGP7/YL1HAdB04t89/1O/w1cDnyilFU=');
@@ -140,7 +140,7 @@ function searchGoogleGeocodingAPI($address) {
        $shop_detail = array(array('name' => '', 'url' => '', 'address' => ''));
        $i = 0;
        $shop_detailes = "";
-       foreach ($taberoguList['rest'] as $shop) {
+       foreach ($gurunaviList['rest'] as $shop) {
 
 
                    //APIから取得した情報を変数に格納
@@ -175,7 +175,7 @@ function searchGoogleGeocodingAPI($address) {
                    $shop_detail[$i]['url'] = $url;
                    $shop_detail[$i]['address'] = $address;
 
-                   $shop_detailes .= '店名:'.$name.'/URL:'.$url.'/住所:'.$address;
+                   $shop_detailes .= '店名:'.$name.'/URL:'.$url.'/住所:'.$address."\n";
 
 
 
@@ -195,16 +195,16 @@ function searchGoogleGeocodingAPI($address) {
      }
   }
 
-  function getTaberoguData($cat,$lat,$lng) {
+  function getGurunaviData($freeword,$lat,$lng) {
     // $params = ['lat'=>$lat,'lng'=>$lng,'cat'=>$cat];
     $params = array(
             // 'format' => 'json',
             'keyid' => 'a5a5c6221c808b389917cd489c139be2',
-            'hit_per_page' => '10',
+            'hit_per_page' => '10', //10件まで
             'latitude' => $lat,
             'longitude' => $lng,
-            'until_morning' => 1,
-            'freeword' => $category,
+            'until_morning' => 1,　//朝までやってる店
+            'freeword' => $freeword, //フリーワード検索
             // 'range' => 2,
             // 'inputCoordinatesMode' => 1,
             // 'coordinatesMode' => 1,
@@ -231,7 +231,7 @@ function searchGoogleGeocodingAPI($address) {
    return json_decode($json, true);
   }
 
-  function getCategory($user_id) {
+  function getFreeword($user_id) {
     $conn = curl_init();
     $data = ['type'=>'get','user_id' => $user_id];
     curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
