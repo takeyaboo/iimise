@@ -176,8 +176,7 @@ function searchGoogleGeocodingAPI($address) {
                    $shop_detail[$i]['address'] = $address;
 
                    $result_num = $i + 1;
-                   $address_map = http_build_query($address);
-                   $shop_detailes .= '['.$result_num.'件目]'."\n".'店名:'.$name."\n".'URL:'.$url."\n".'住所:https://www.google.com/maps/search/?api=1&query='.$address_map."\n\n";
+                   $shop_detailes .= '['.$result_num.'件目]'."\n".'店名:'.$name."\n".'URL:'.$url."\n".'住所:'.$address."\n\n";
 
 
 
@@ -258,8 +257,4 @@ function searchGoogleGeocodingAPI($address) {
     }
   }
 
-  function getGoogleMapUrl(string $address): string{
-    $query = http_build_query(['api' => 1, 'query' => $address]);
-
-    return 'https://www.google.com/maps/search/?' . $query;
-  }
+  
