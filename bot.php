@@ -67,21 +67,23 @@ try {
 
 function processTextMessageEvent($bot, $event) {
   $text = $event->getText();
-  if (isCategoryText($text)) {
+  // if (isCategoryText($text)) {
     putCategory($event->getUserId(), $text);
     replayLocationActionMessage($bot, $event->getReplyToken());
-  } else {
-    searchFromLocationWord($bot, $event);
-    $res = $bot->replyText($event->getReplyToken(),'ジャンル(1〜4)を入力してください。(和=1,洋=2,中=3,その他=4)');
-  }
+  // } else {
+  //   searchFromLocationWord($bot, $event);
+  //   $res = $bot->replyText($event->getReplyToken(),'ジャンル(1〜4)を入力してください。(和=1,洋=2,中=3,その他=4)');
+  // }
 }
 
 function isCategoryText($text) {
   return ($text === '1' || $text === '2' || $text === '3' || $text === '4');
 }
 
-function putCategory($user_id, $category) {
-  $data = ['type'=>'set','user_id' => $user_id,'cat'=>intval($category)];
+function putCategory($user_id, $word) {
+  // $data = ['type'=>'set','user_id' => $user_id,'cat'=>intval($category)];
+  $data = ['type'=>'set','user_id' => $user_id,'word'=> $word];
+
   $conn = curl_init();
 
   curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
@@ -127,8 +129,8 @@ function searchGoogleGeocodingAPI($address) {
 
   function replyTaberguList($bot, $eventData, $lat, $lng) {
 
-     // $category = getCategory($eventData->getUserId());
-     $taberoguList = getTaberoguData(1,$lat,$lng);
+     $category = getCategory($eventData->getUserId());
+     $taberoguList = getTaberoguData($category,$lat,$lng);
      // $taberoguList = ['lat'=>$lat,'lng'=>$lng,'cat'=>1];
      if (count($taberoguList) === 0) {
        $bot->replyText($eventData->getReplyToken(),'お店が見つかりませんでした。');
@@ -202,7 +204,7 @@ function searchGoogleGeocodingAPI($address) {
             'latitude' => $lat,
             'longitude' => $lng,
             'until_morning' => 1,
-            // 'freeword' => 'お酒',
+            'freeword' => $category,
             // 'range' => 2,
             // 'inputCoordinatesMode' => 1,
             // 'coordinatesMode' => 1,
