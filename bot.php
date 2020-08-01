@@ -102,7 +102,7 @@ function putCategory($user_id, $word) {
 
 function replayLocationActionMessage($bot, $token) {
   $action = new LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("位置情報を送る", 'line://nv/location');
-  $buttonObj = new LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(NULL, '続いて位置情報を送るか、住所／地域名を入力してください。', NULL, [$action]);
+  $buttonObj = new LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(NULL, '続いいて位置情報を送るか、住所／地域名を入力してください。', NULL, [$action]);
   $bot->replyMessage($token,new LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('続いて位置情報を送ってください。',$buttonObj));
 }
 
@@ -256,5 +256,3 @@ function searchGoogleGeocodingAPI($address) {
       return 1;
     }
   }
-
-  

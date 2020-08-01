@@ -1,0 +1,12 @@
+[github]
+https://github.com/takeyaboo/iimise
+
+[heroku]
+https://dashboard.heroku.com/apps/iimise
+iimise.herokuapp.com
+
+[参考サイト]
+https://qiita.com/NARI_Creator/items/f29112e6f604c86b3c0d
+
+[messaging api管理画面]
+https://developers.line.biz/console/channel/1653856348
