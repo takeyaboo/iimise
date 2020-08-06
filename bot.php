@@ -205,7 +205,7 @@ function searchGoogleGeocodingAPI($address) {
             'latitude' => $lat,
             'longitude' => $lng,
             //朝までやってる店
-            // 'until_morning' => 1,
+            'until_morning' => 1,
             //フリーワード検索
             'freeword' => $freeword,
             // 'range' => 2,
