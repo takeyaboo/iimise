@@ -68,7 +68,7 @@ try {
 function processTextMessageEvent($bot, $event) {
   $text = $event->getText();
   // if (isCategoryText($text)) {
-    // putCategory($event->getUserId(), $text);
+    putCategory($event->getUserId(), $text);
     // replayLocationActionMessage($bot, $event->getReplyToken());
   // } else {
   //   searchFromLocationWord($bot, $event);
