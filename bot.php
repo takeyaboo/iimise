@@ -23,22 +23,6 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '3642a5308ae8d0816c64d
 $signature = $_SERVER["HTTP_" . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 $body = file_get_contents("php://input");
 
-// try {
-//     // Bodyと$signatureから内容をVerifyして成功すればEventを得られる
-//     $events = $bot->parseEventRequest($body, $signature);
-//
-//     foreach ($events as $event) {
-//        if($event instanceof TextMessage) {
-//           $bot->replyText($event->getReplyToken(), 'メッセージが来たよ！');
-//           continue;
-//        }
-//
-//     }
-//
-// } catch (Exception $e) {
-//   // none
-// }
-
 try {
     // Bodyと$signatureから内容をVerifyして成功すればEventを得られる
     $events = $bot->parseEventRequest($body, $signature);
@@ -251,7 +235,7 @@ function searchGoogleGeocodingAPI($address) {
 
     $status = json_decode($result)->{'status'};
     if ($status === 'success') {
-      return json_decode($result)->{'user'}->{'cat'};
+      return json_decode($result)->{'user'}->{'word'};
     } else {
       return 1;
     }
