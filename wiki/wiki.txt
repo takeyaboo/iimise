@@ -5,6 +5,9 @@ https://github.com/takeyaboo/iimise
 https://dashboard.heroku.com/apps/iimise
 iimise.herokuapp.com
 
+ログ確認コマンド
+heroku logs --tail
+
 [参考サイト]
 https://qiita.com/NARI_Creator/items/f29112e6f604c86b3c0d
 
@@ -13,3 +16,8 @@ https://developers.line.biz/console/channel/1653856348
 
 git push origin master
 実行するとgithubにupされ自動でherokuのgitリポジトリにもupされる
+
+[ぐるなびAPIマイページ]
+https://ssl.gnavi.co.jp/api/mypage
+
+APIキーの期間は発行後90日だがマイページで簡単に更新/作り直しができる

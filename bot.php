@@ -35,7 +35,21 @@ try {
        } else if ($event instanceof PostbackEvent) {
           continue;
        } else if ($event instanceof TextMessage) {
-          processTextMessageEvent($bot, $event);
+         if($event->{"text"} == '確認'){
+           $messageData = [
+              'type' => 'template',
+              'altText' => '確認ダイアログ',
+              'template' => [ 'type' => 'confirm', 'text' => '元気ですかー？',
+                'actions' => [
+                    [ 'type' => 'message', 'label' => '元気です', 'text' => '元気です' ],
+                    [ 'type' => 'message', 'label' => 'まあまあです', 'text' => 'まあまあです' ],
+                ]
+              ]
+           ];
+           $bot->replyMessage($event->getReplyToken(), $messageData);
+         }else{
+           processTextMessageEvent($bot, $event);
+         }
           continue;
        } else if ($event instanceof LocationMessage) {
          replyGurunaviList($bot, $event, $event->getLatitude(), $event->getLongitude()); //＊追加＊
