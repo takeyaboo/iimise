@@ -35,8 +35,8 @@ try {
        } else if ($event instanceof PostbackEvent) {
           continue;
        } else if ($event instanceof TextMessage) {
-         $text = $event->getText():
-         if($text== '確認'){
+         $text = $event->getText();
+         if($text == '確認'){
            $messageData = [
               'type' => 'template',
               'altText' => '確認ダイアログ',
