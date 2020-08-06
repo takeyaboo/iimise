@@ -96,7 +96,7 @@ function processTextMessageEvent($bot, $event) {
                 "text": "アクション 3"
             }
         ],
-    "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
+    "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/07/22/18/34/cocktail-1535518_1280.jpg",
     "title": "タイトルです",
     "text": "テキストです"
     }
