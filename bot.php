@@ -68,40 +68,12 @@ try {
 function processTextMessageEvent($bot, $event) {
   $text = $event->getText();
   // if (isCategoryText($text)) {
-  putCategory($event->getUserId(), $text);
-    // replayLocationActionMessage($bot, $event->getReplyToken());
+    putCategory($event->getUserId(), $text);
+    replayLocationActionMessage($bot, $event->getReplyToken());
   // } else {
   //   searchFromLocationWord($bot, $event);
   //   $res = $bot->replyText($event->getReplyToken(),'ジャンル(1〜4)を入力してください。(和=1,洋=2,中=3,その他=4)');
   // }
-  $bot->replyMessage($event->getReplyToken(), 'a');
-  //  {
-  //   "type": "template",
-  //   "altText": "this is a buttons template",
-  //   "template": {
-  //       "type": "buttons",
-  //       "actions": [
-  //           {
-  //               "type": "message",
-  //               "label": "アクション 1",
-  //               "text": "アクション 1"
-  //           },
-  //           {
-  //               "type": "message",
-  //               "label": "アクション 2",
-  //               "text": "アクション 2"
-  //           },
-  //           {
-  //               "type": "message",
-  //               "label": "アクション 3",
-  //               "text": "アクション 3"
-  //           }
-  //       ],
-  //   "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/07/22/18/34/cocktail-1535518_1280.jpg",
-  //   "title": "タイトルです",
-  //   "text": "テキストです"
-  //   }
-  // });
 }
 
 function isCategoryText($text) {
