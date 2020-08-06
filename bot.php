@@ -68,13 +68,13 @@ try {
 function processTextMessageEvent($bot, $event) {
   $text = $event->getText();
   // if (isCategoryText($text)) {
-    putCategory($event->getUserId(), $text);
+  putCategory($event->getUserId(), $text);
     // replayLocationActionMessage($bot, $event->getReplyToken());
   // } else {
   //   searchFromLocationWord($bot, $event);
   //   $res = $bot->replyText($event->getReplyToken(),'ジャンル(1〜4)を入力してください。(和=1,洋=2,中=3,その他=4)');
   // }
-  $bot->replyMessage($event->getReplyToken(), {
+  $bot->replyMessage($event->getReplyToken(),　{
     "type": "template",
     "altText": "this is a buttons template",
     "template": {
