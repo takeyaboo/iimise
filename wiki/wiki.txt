@@ -10,3 +10,6 @@ https://qiita.com/NARI_Creator/items/f29112e6f604c86b3c0d
 
 [messaging api管理画面]
 https://developers.line.biz/console/channel/1653856348
+
+git push origin master
+実行するとgithubにupされ自動でherokuのgitリポジトリにもupされる

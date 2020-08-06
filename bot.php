@@ -68,12 +68,39 @@ try {
 function processTextMessageEvent($bot, $event) {
   $text = $event->getText();
   // if (isCategoryText($text)) {
-    putCategory($event->getUserId(), $text);
-    replayLocationActionMessage($bot, $event->getReplyToken());
+    // putCategory($event->getUserId(), $text);
+    // replayLocationActionMessage($bot, $event->getReplyToken());
   // } else {
   //   searchFromLocationWord($bot, $event);
   //   $res = $bot->replyText($event->getReplyToken(),'ジャンル(1〜4)を入力してください。(和=1,洋=2,中=3,その他=4)');
   // }
+  $bot->replyMessage($token, {
+    "type": "template",
+    "altText": "this is a buttons template",
+    "template": {
+        "type": "buttons",
+        "actions": [
+            {
+                "type": "message",
+                "label": "アクション 1",
+                "text": "アクション 1"
+            },
+            {
+                "type": "message",
+                "label": "アクション 2",
+                "text": "アクション 2"
+            },
+            {
+                "type": "message",
+                "label": "アクション 3",
+                "text": "アクション 3"
+            }
+        ],
+    "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
+    "title": "タイトルです",
+    "text": "テキストです"
+    }
+  });
 }
 
 function isCategoryText($text) {
@@ -102,7 +129,7 @@ function putCategory($user_id, $word) {
 
 function replayLocationActionMessage($bot, $token) {
   $action = new LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("位置情報を送る", 'line://nv/location');
-  $buttonObj = new LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(NULL, '続いいて位置情報を送るか、住所／地域名を入力してください。', NULL, [$action]);
+  $buttonObj = new LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder(NULL, '続いて位置情報を送るか、住所／地域名を入力してください。', NULL, [$action]);
   $bot->replyMessage($token,new LINE\LINEBot\MessageBuilder\TemplateMessageBuilder('続いて位置情報を送ってください。',$buttonObj));
 }
 
