@@ -48,7 +48,8 @@ try {
            ];
            $bot->replyMessage($event->getReplyToken(), $messageData);
          }else{
-           processTextMessageEvent($bot, $event);
+           $bot->replyMessage($event->getReplyToken(), var_export($event));
+           // processTextMessageEvent($bot, $event);
          }
           continue;
        } else if ($event instanceof LocationMessage) {
