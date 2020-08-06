@@ -48,7 +48,7 @@ try {
            ];
            $bot->replyMessage($event->getReplyToken(), $messageData);
          }else{
-           $bot->replyMessage($event->getReplyToken(), var_export($event));
+           $bot->replyText($event->getReplyToken(), var_export($event));
            // processTextMessageEvent($bot, $event);
          }
           continue;
